@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>function lecture</title>
+</head>
+<body>
+
+<script>
+
+    //IIFE < I can use JavaScripts 'scoping' to protect code in a way:
+    //Top of my code < beginning of my gated neighborhood
+    (function() {
+        <!--    Ideally - we'd be doing this in an EXTERNAL js file - I'm keeping it all in one for readability-->
+
+//Something repeated in my code >
+
+// alert("Hello there!");
+
+//other code
+
+// alert("Hello there!");
+
+// more code
+
+// alert("Hello there!");
+
+//Already, I can take a look at JavaScript functions to help me here
+
+//Know the syntax to make a function:
+//function keyword
+//name of the function
+//parenthesis to allow for incoming inputs (parameters/arguments)
+//{ } curly braces for the BODY, the actual AREA of the function
+// function exampleFn (param1) { }
+
+        function helloUser() { //function keyword - name of function - parenthesis () - {
+            alert("Hey user!");
+        }
+
+        function twoPlusTwo() {
+            return 2 + 2;
+        }
+
+//Okay - that's neat, but what I want to allow for some incoming information for my function to use?
+
+//Set up parameters - to use with arguments
+//Parameters - the name of the area of your function that will ALLOW incoming information
+//Argument - the actual information provided when the function is CALLED
+
+        function helloName(name) { //function keyword + name of function + ONE PARAMETER labeled NAME
+
+            // //If I want to get something back OUT of my function, I ask it to return me something with the 'return' keyword
+            // return name;
+
+            //Next step - lets use the 'name' parameter in an interesting way. . maybe I can provide the parameter to something else?
+            alert("Hello " + name + ", how are you?");
+
+            //Return statement unreachable code conversation:
+            // alert("Any code you write after a return statement")
+            // alert("no matter how well written")
+            // alert("or verbose")
+            // alert("or proper")
+            // alert("will not execute")
+        }
+
+//Let's refactor the twoPlusTwo to be twoPlusNum. .
+
+// function twoPlusTwo(){
+//     return 2 + 2;
+// }
+
+        function twoPlusNum(x) {
+
+            return 2 + x;
+        }
+
+//Let's refactor twoPlusNum. . to be numPlusNum < <
+
+        function numPlusNum(x, y) {
+
+            return x + y;
+        }
+
+// var twoPlusThirty = numPlusNum(2, 30)
+// undefined
+// twoPlusThirty
+// 32
+// var tenPlusTen = numPlusNum(10, 10)
+// undefined
+// tenPlusTen
+// 20
+// twoPlusThirty
+// 32
+// var moreWild = numPlusNum(twoPlusThirty, tenPlusTen)
+// undefined
+// moreWild
+// 52
+// var myFavoriteNumber = 7;
+// undefined
+// var myOtherFavoriteNumber = 21;
+// undefined
+// alert("Your favorite numbers combined are " + numPlusNum(myFavoriteNumber, myOtherFavoriteNumber))
+
+//Anonymous functions - have your function be assigned to a variable by name
+
+//function declaration - I used the function keyword with a name for my function and then parenthesis etc.
+        function declareMe() {
+            alert("This is a function declaration");
+        }
+
+//function expression - an anonymous function, I set up the instructions for my function and assigned it directly to a variable
+
+        var expressMe = function () {
+            alert("This is a function expression! Anonymous!");
+        }
+
+//Scope - function scoping, global / local level scopes
+
+        var globalString = "The stars at night are big and bright. . .";
+
+        function exampleScopeFunction() {
+            alert(globalString + ". . . deep in the heart of Texas");
+
+            var functionLocalString = " . . . deep inside my function's scope";
+
+            alert("The variable is accessible here from " + functionLocalString);
+        }
+
+        var localString = "oops now this is getting weird - i'm a variable CALLED localString just like the line above. . " //This is a GLOBAL variable with the SAME NAME as the one inside the function :head_explode_emoji:
+
+//we renamed the string inside of the function for some hoisting examples - https://www.w3schools.com/js/js_hoisting.asp
+
+        alert(globalString + localString);
+
+    })();
+</script>
+</body>
+</html>
