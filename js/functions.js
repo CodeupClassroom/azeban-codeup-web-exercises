@@ -72,6 +72,21 @@ var random = Math.floor((Math.random() * 3) + 1);
  * number)
  */
 
+// named function - isTwo
+// one parameter < a number
+// should return IF inputNumber = = = 2  is true
+// otherwise false
+
+function isTwo(number){
+
+    return number === 2;
+}
+
+//call function with the variable 'random' from line 55
+//console.log the functions work
+console.log("Hello this is random: " + random);
+console.log(isTwo(random));
+
 /**
  * TODO:
  * Create a function named 'calculateTip' to calculate a tip on a bill at a
