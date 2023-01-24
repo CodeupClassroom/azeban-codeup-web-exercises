@@ -120,6 +120,11 @@ var billTotal = prompt("How much was your bill tonight? :)");
 
 var tipPercent = prompt("How much would you like to tip in a decimal?");
 
+// function calculateTip(tipDecimal, totalBill){
+//
+//     return tipDecimal * totalBill;
+// }
+
 alert("Okay cool - thank you for that information, you should tip $" + calculateTip(tipPercent, billTotal));
 
 
@@ -137,3 +142,19 @@ alert("Okay cool - thank you for that information, you should tip $" + calculate
  *
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
+
+//named function < applyDiscount
+//two parameter < totalPrice, discountPercent
+//return the ADJUSTED price < of total reflecting the discount provided
+//e.g., 100 with .2 the adjusted price is 80
+
+function applyDiscount(totalPrice, discountPercent){
+   //v1
+   //  var mathBucket = totalPrice - (totalPrice * discountPercent);
+   //
+   //  return mathBucket;
+
+    // v2
+
+    return totalPrice - (totalPrice * discountPercent);
+}
