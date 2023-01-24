@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>conditionals_lecture</title>
+</head>
+<body>
+
+<script>
+
+    //Paths < our applications have ways to check the STATE, the CONDITION of something
+
+    //Is the user an administrator?
+    //If the user is an administrator. .
+    // . . show them the secret admin stuff.
+    //If the user is NOT an administrator
+    // . . show them the regular profile page.
+
+    //if(thisThingIsTrue){
+    // execute this code
+    // }
+
+    // if(true){
+    //     alert("I should see this");
+    // }
+    //
+    // if(false){
+    //     alert("I would not see this");
+    // }
+
+    //From here, we need to expand into the condition (the parenthesis) and look into various ways to talk to it
+
+    // var random = Math.floor((Math.random() * 3) + 1); //Gives us a num between 1 and 3
+    //
+    // console.log(random);
+    //
+    // if(random === 2){ //our condition can be a boolean expression that boils down to two. . .
+    //     alert("Random is the number two");
+    // }
+
+    // var isItRaining = confirm("Is it raining outside in San Antonio?");
+    //
+    // // if(isItRaining){
+    // //     alert("Get your umbrella!");
+    // // }
+    //
+    // //Refactor - add in an else
+    //
+    // if(isItRaining){ //if. . it is raining
+    //     alert("Go get an umbrella plz");
+    // } else { //else. . its not true that it is raining
+    //     alert("Excellent - lets go outside and enjoy the weather");
+    // }
+
+    //Refactor isTwo conditional to be if-else
+    // if(random === 2){
+    //     alert("I love the number 2 - let's get a number 2 celebration, what a great number");
+    // } else {
+    //     alert("I am VERY mad. That is NOT the number two");
+    // }
+
+    //Re-refactor isTwo.. for multiple paths!
+
+    // if(random === 2){
+    //     alert("Partay - time ! ! The number was TWO");
+    // } else if (random === 1 ){
+    //     alert("That's okay - one isn't THAT bad");
+    // } else if (random === 3) {
+    //     alert("Three is a pretty cool number - very mystical");
+    // }
+
+    //if-else if-else
+    // var lunchTime = prompt("What do you want for lunch? hint: the answer is 'enchiladas'")
+    //
+    // if(lunchTime === "enchiladas"){
+    //     alert("Ab-so-lute-ly lets GO, taqueria time, I'm buying");
+    // } else if (lunchTime === "lobster mac"){
+    //     alert("Ooo nice - pretty delicious! I don't have lobster a lot");
+    // } else if (lunchTime === "carnitas"){
+    //     var whatKindOfSalsa = prompt("What kind of salsa will you have with it?");
+    //
+    //     if(whatKindOfSalsa === "red"){
+    //         alert("Red salsa and carnitas! Awesome combo!");
+    //     } else if (whatKindOfSalsa === "tomatillo"){
+    //         alert("Very good - can be a little spicy!")
+    //     } else {
+    //     alert("Always good with some lime and salsa - tacos with carnitas and " + whatKindOfSalsa + " salsa!");
+    //     }
+    //
+    // } else if (lunchTime === "grilled cheese"){
+    //     alert("Grilled cheese - classic!");
+    // } else {
+    //     alert(lunchTime + "? That sounds interesting - haven't had that before!");
+    // }
+
+    //ternary - we can take an IF ELSE and makae it a ONE LINER, a ternary
+
+    // var isItRaining = confirm("Is it raining outside in San Antonio?");
+
+    //if(condition) {}
+    // else {}
+
+    // (isItRaining) ? alert("Go get your umbrella") : alert("We are all good to hang out outside - no rain in sight!");
+
+    var pizzaPreference = prompt("What kind of pizza do you like?");
+
+    switch(pizzaPreference) {
+        case "pineapple and hot sauce": //if it was this. . do the following
+            alert("What a coincidence, that's my favorite!");
+            break;
+
+        case "cheese": //if it was this . . do the following
+            alert("Just plain cheese? Okay...");
+            break;
+
+        default: //does this is nothing else matched, none of the other cases were true
+            alert(pizzaPreference + " isn't my favorite, but let's order some!");
+            break;
+    }
+
+</script>
+</body>
+</html>
