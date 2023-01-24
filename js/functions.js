@@ -28,6 +28,15 @@ function sayHello(name){
  * console.log 'helloMessage' to check your work
  */
 
+//call my function :phone_emoji:
+//use my name as a string < as the input / the argument
+//the RESULT; the RETURN need to end up in var named "helloMessage"
+//after all of the above: console.log the var
+
+var helloMessage = sayHello("kenneth howell");
+
+console.log(helloMessage);
+
 /**
  * TODO:
  * Store your name as a string in a variable named 'myName', and pass that
