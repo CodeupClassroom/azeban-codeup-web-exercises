@@ -99,6 +99,12 @@ console.log(isTwo(random));
  * > calculateTip(0.15, 33.42) // returns 5.013
  */
 
+function calculateTip(tipDecimal, totalBill){
+
+    return tipDecimal * totalBill;
+}
+
+
 /**
  * TODO:
  * Use prompt and alert in combination with your calculateTip function to
