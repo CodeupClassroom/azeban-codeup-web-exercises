@@ -1,5 +1,5 @@
 "use strict";
-
+// alert("Hey is this file hooked up?")
 /**
  * TODO:
  * Create a function called 'sayHello' that takes a parameter 'name'.
@@ -8,6 +8,17 @@
  * Example
  * > sayHello("codeup") // returns "Hello, codeup!"
  */
+
+// named function < name is sayHello
+// one parameter < parameters label should be 'name'
+// return a string < string should concatenate "Hello, " + the input / the argument
+
+function sayHello(name){
+
+    return "Hello, " + name + "!";
+}
+
+
 
 /**
  * TODO:
