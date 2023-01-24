@@ -112,6 +112,17 @@ function calculateTip(tipDecimal, totalBill){
  * then display the dollar amount they should tip
  */
 
+//two prompts < how much did you pay? how much do you want to tip?
+//two variables to save result of prompts?
+//an alert! an alert using my calculateTip function to show the result of the math :D
+
+var billTotal = prompt("How much was your bill tonight? :)");
+
+var tipPercent = prompt("How much would you like to tip in a decimal?");
+
+alert("Okay cool - thank you for that information, you should tip $" + calculateTip(tipPercent, billTotal));
+
+
 /**
  * TODO:
  * Create a function named `applyDiscount`. This function should accept a price
