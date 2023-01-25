@@ -83,9 +83,9 @@ function analyzeColor(input){
  * function to show it to the user.
  */
 
-var userColor = prompt("Hellllloooo user - what is your FAVORITE color?");
-
-alert(analyzeColor(userColor));
+// var userColor = prompt("Hellllloooo user - what is your FAVORITE color?");
+//
+// alert(analyzeColor(userColor));
 
 /* ########################################################################## */
 
@@ -108,6 +108,30 @@ alert(analyzeColor(userColor));
  * Test your function by passing it various values and checking for the expected
  * return value.
  */
+
+// If your lucky number is 0 you have
+// no discount, if your lucky number is 1 you'll get a 10% discount, if it's 2,
+//     the discount is 25%, if it's 3, 35%, if it's 4, 50%, and if it's 5 you'll get
+// everything for free!.
+
+function calculateTotal(luckyNum, totalAmount){
+
+    if(luckyNum === 0){
+        return totalAmount;
+    } else if(luckyNum === 1){
+        return totalAmount - (totalAmount * .10);
+    } else if (luckyNum === 2){
+        return totalAmount - (totalAmount * .25);
+    } else if (luckyNum === 3){
+        return totalAmount - (totalAmount * .35);
+    } else if (luckyNum === 4){
+        return totalAmount - (totalAmount * .50);
+    } else if (luckyNum === 5){
+        return totalAmount - totalAmount;
+    }
+
+
+}
 
 /**
  * TODO:
