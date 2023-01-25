@@ -142,11 +142,11 @@ function calculateTotal(luckyNum, totalAmount){
  * price before the discount was, and what their price after the discount is.
  */
 // Generate a random number between 0 and 6
-var luckyNumber = Math.floor(Math.random() * 6);
-
-var totalBill = prompt("Hello - how much did you pay today?");
-
-alert("I've got news - your lucky number was " + luckyNumber + ", and your total was $" + totalBill + " which means you pay $" + calculateTotal(luckyNumber, totalBill) + " today!");
+// var luckyNumber = Math.floor(Math.random() * 6);
+//
+// var totalBill = prompt("Hello - how much did you pay today?");
+//
+// alert("I've got news - your lucky number was " + luckyNumber + ", and your total was $" + totalBill + " which means you pay $" + calculateTotal(luckyNumber, totalBill) + " today!");
 
 /**
  * TODO:
@@ -160,9 +160,42 @@ alert("I've got news - your lucky number was " + luckyNumber + ", and your total
  *
  * Do *NOT* display any of the above information
  * if the user enters a value that is not of the number data type.
- * Instead, use an alert to inform them of the incorrect input data type.
+ * Instead, use an alert to inform them of the incorrect input data type. Refactor opportunity? Could your alert be programmed to tell them what data type they gave? It would always be a string from prompt. . .
  *
  *
  * Can you refactor your code to use functions?
  * HINT: The way we prompt for a value could be improved
  */
+
+// confirm < first step, if TRUE proceed, if FALSE stop process
+//prompt for number < if NOT number, stop process and alert
+//with number - alert a.> number odd or even? b.> number + 100 c.> number negative or positive?
+
+var wantsToGiveNumber = confirm("Hello - would you like to give me a number?");
+
+if(wantsToGiveNumber){
+
+    var userNumber = parseInt(prompt("YEAHHHHHHHHH - what number are you going to give me?"));
+
+    if(isNaN(userNumber)){
+        alert("Hey - that is NOT a number. That is very rude. Goodbye.")
+    } else {
+        alert("okay - you gave me a number: " + userNumber);
+
+        var isEven = userNumber % 2 === 0;
+        var addOneHundred = userNumber + 100;
+        var isPositive = userNumber >= 0;
+
+        //hypothetical future refactor: nested if statements?
+        //if(isEven) { alert("YOUR NUMBER IS EVEN }
+
+        alert("It is " + isEven + " that your number is even.");
+        alert("Here's your number with 100 added: " + addOneHundred);
+        alert("It was " + isPositive + " that your number was positive.");
+
+
+    }
+
+} else {
+    alert("y do u hate numbers tho")
+}
