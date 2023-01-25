@@ -22,18 +22,18 @@
  * console.logging the function's return value
  */
 
-function analyzeColor(input){
-    if(input === "red"){
-        return "Red roses are typical for Valentines Day - coming up next month!"
-    } else if (input === "orange"){
-        return "My favorite royal family from history - also a delicious fruit!"
-    } else if (input === "yellow"){
-        return "Keep it mellow when you are yellow - the sun is a yellow object to some people!"
-    } else {
-        return input + "? I don't know much about " + input;
-    }
-
-}
+// function analyzeColor(input){
+//     if(input === "red"){
+//         return "Red roses are typical for Valentines Day - coming up next month!"
+//     } else if (input === "orange"){
+//         return "My favorite royal family from history - also a delicious fruit!"
+//     } else if (input === "yellow"){
+//         return "Keep it mellow when you are yellow - the sun is a yellow object to some people!"
+//     } else {
+//         return input + "? I don't know much about " + input;
+//     }
+//
+// }
 
 
 // Don't change the next two lines!
@@ -56,6 +56,25 @@ console.log(analyzeColor(randomColor));
  * TODO:
  * Comment out the code above, and refactor your function to use a switch-case statement
  */
+
+function analyzeColor(input){
+
+    switch(input){
+        case "red":
+            return "Red roses are typical for Valentines Day - coming up next month!"
+
+        case "orange":
+            return "My favorite royal family from history - also a delicious fruit!"
+
+        case "yellow":
+            return "Keep it mellow when you are yellow - the sun is a yellow object to some people!"
+
+        default:
+            return input + "? I don't know much about " + input;
+    }
+
+}
+
 
 /**
  * TODO:
