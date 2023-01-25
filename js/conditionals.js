@@ -83,6 +83,10 @@ function analyzeColor(input){
  * function to show it to the user.
  */
 
+var userColor = prompt("Hellllloooo user - what is your FAVORITE color?");
+
+alert(analyzeColor(userColor));
+
 /* ########################################################################## */
 
 /**
