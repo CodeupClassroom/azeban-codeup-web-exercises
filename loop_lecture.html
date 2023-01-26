@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>loop lecture</title>
+</head>
+<body>
+
+<script>
+
+    // var i = 10;
+    //
+    // // while (condition) {
+    // //     do stuff
+    // // }
+    //
+    // while(i < 10){ //while loops check this condition FIRST
+    //     //then execute
+    //     console.log("i is currently - " + i);
+    //     //oops that was infinite . . not good, lets make sure to change the value of i
+    //     i++;
+    // }
+
+    // var keepGoing = confirm("Do you want to see the while loop body?")
+    // var count = 1;
+    // while(keepGoing){
+    //
+    //     alert("This is the while loop that never ends, it just goes on and on my friends, we have seen this message . . " + count + " times.");
+    //     count++;
+    //
+    //     keepGoing = confirm("Wanna keep singing? :D");
+    // }
+
+    // do {
+    //     //do stuff
+    // } while (condition)
+
+    // do {
+    //     //the body of a do-while loop.. will ALWAYS execute at least one time
+    //     console.log("Will we see this?")
+    // } while (i < 10);
+
+   //  var keepGoing = confirm("Do you want to see the do-while loop body?")
+   //  var count = 1;
+   //
+   // do {
+   //
+   //      alert("This is the while loop that never ends, it just goes on and on my friends, we have seen this message . . " + count + " times.");
+   //      count++;
+   //
+   //      keepGoing = confirm("Wanna keep singing? :D");
+   //  } while (keepGoing)
+
+    //the bold and beautiful FOR LOOP * wow *
+    // for (/*initialization*/; /*condition*/; /*increment*/) {
+    //     // body
+    // }
+
+    //This loop structure has many more moving pieces. . more 'things' to set up, but it is VERY useful, and you see it in NUMEROUS languages outside of our stack
+
+    // for(thingToCount; doIKeepCounting; howDoIChangeTheCount){
+    //
+    // }
+
+    // for(var count = 0; count < 10; count++){
+    //     console.log("Ah ah ah ah ah - the count is currently " + count + "!");
+    // }
+
+    //one layer of onion
+    // for(var i = 0; i <= 100; i += 1){
+    //     console.log(i);
+    // }
+
+    //two layer of the onion
+    // for(var i = 0; i <= 100; i += 1){
+    //
+    //     if(i === 23){
+    //         alert("Wazzup david");
+    //     } else if (i === 13){
+    //         alert("gmornin' daniela");
+    //     }
+    //
+    //     console.log(i);
+    // }
+
+    //three layers of onion < can I use a function
+    //OF COURSE lets build a baby function
+
+    // function sayHello(){
+    //     alert("Hello!");
+    // }
+    //
+    // for(var i = 0; i <= 5; i++){
+    //     sayHello();
+    // }
+
+    //four layers of onion! even more complicated / interesting
+    function myCount(numberToCountTo){
+        for(let i = 0; i <= numberToCountTo; i++){
+            console.log(i);
+
+            //refactor w/ continue
+
+            if(i % 2 === 0){
+                alert("Yas, even numbers are cool");
+                alert("i is currently " + i);
+            } else {
+                alert("ewwwwww - odd number, skipping the rest of the code, but NOT breaking out of the loop")
+                continue; //I want to CONTINUE LOOPING, but hop back to the 'start' of my loop (for loop will start with the condition check again)
+                alert("Will you see me? I am the alert below continue in the else on line 107");
+            }
+
+            //refactor w/ break:
+            if(i === 13){
+                alert("Oops - hit a favorite number!");
+                break; //break me out of the loop
+            } else if (i === 15){
+                alert("Will we see this? Will the break stop it");
+            }
+
+        }
+
+        alert("We finished counting!");
+    }
+</script>
+</body>
+</html>
