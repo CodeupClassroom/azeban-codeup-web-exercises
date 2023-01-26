@@ -86,19 +86,40 @@
     //three layers of onion < can I use a function
     //OF COURSE lets build a baby function
 
-    function sayHello(){
-        alert("Hello!");
-    }
-
-    for(var i = 0; i <= 5; i++){
-        sayHello();
-    }
+    // function sayHello(){
+    //     alert("Hello!");
+    // }
+    //
+    // for(var i = 0; i <= 5; i++){
+    //     sayHello();
+    // }
 
     //four layers of onion! even more complicated / interesting
     function myCount(numberToCountTo){
-        for(let i = 0; i < numberToCountTo; i++){
+        for(let i = 0; i <= numberToCountTo; i++){
             console.log(i);
+
+            //refactor w/ continue
+
+            if(i % 2 === 0){
+                alert("Yas, even numbers are cool");
+                alert("i is currently " + i);
+            } else {
+                alert("ewwwwww - odd number, skipping the rest of the code, but NOT breaking out of the loop")
+                continue; //I want to CONTINUE LOOPING, but hop back to the 'start' of my loop (for loop will start with the condition check again)
+                alert("Will you see me? I am the alert below continue in the else on line 107");
+            }
+
+            //refactor w/ break:
+            if(i === 13){
+                alert("Oops - hit a favorite number!");
+                break; //break me out of the loop
+            } else if (i === 15){
+                alert("Will we see this? Will the break stop it");
+            }
+
         }
+
         alert("We finished counting!");
     }
 </script>
