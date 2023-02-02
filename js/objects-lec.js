@@ -1,6 +1,6 @@
 "use strict";
 
-//I have a truck - need it to get around San Antonio, I can definitely start talking about my truck in JavaScript like this:
+//I have a truck - need it to get around San Antonio, I can definitely start talking about my truck in JavaScript like this with an array:
 
 var myTruck = ["Chevy", "Silverado", 2017, "High Country", "Bed lining", "4x2", "Bose sound system"]
 
@@ -17,7 +17,7 @@ myTruck.unshift("enchiladas verdes");
 
 console.log(myTruck);
 
-//An array is just a long list of indexed primitives . . not smarter or dumber than that, it is just what it is
+//An array is just a long list of indexed primitives . . not smarter or dumber than that, it is just what it is [a list style set of data]
 
 //An object is probably the answer here
 //DEPTH - VERTICALITY - lets me assign 'properties'
