@@ -90,7 +90,7 @@ console.log(myTruckObject);
 
 //YOU DO: Would you like to add a nested object / array to your car? Give it a shot
 
-var mySecondCar = {make: "Jeep", model: "Wrangler", year: 2015, features: ["All terrains", "always loud when driving", "navigation", "hard top"]}
+var mySecondCar = {make: "Jeep", model: "Wrangler", year: 2015, features: ["All terrains", "always loud when driving", "navigation", "hard top"], owner: {firstName: "Kevin", lastName: "Powell"}}
 
 var myGarage = [myTruckObject, mySecondCar];
 
@@ -127,4 +127,20 @@ myGarage.forEach(function(myTruck){ //an array of objects
     mySecondCar.turnOn = function(){
        console.log("I'm changing the console.log to show you a different effect in our console when we call this one")
     }
+
+    //THIS keyword < this.property
+    //self-reference, to THIS object
+
+    myTruckObject.logInfo = function(){
+
+        console.log(this.make + " " + this.model + " owned by : " + this.owner.firstName + " " + this.owner.lastName);
+
+    }
+
+    mySecondCar.logInfo = function(){
+
+        console.log(this.make + " " + this.model + " owned by : " + this.owner.firstName + " " + this.owner.lastName);
+
+    }
+
 })
