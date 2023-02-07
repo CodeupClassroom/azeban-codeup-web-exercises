@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[f] [o] [r] [m] [s]</title>
+</head>
+<body>
+
+<!--we need specific puzzle pieces; elements for our form-->
+
+<!-- base form element -->
+<!-- number of inputs (username, click to choose a date, radio selection) for our user to use -->
+<!--inputs have 'labels' for them -->
+<!--button to 'submit' the form [type attribute set to 'submit']-->
+
+<!--Action and Method: Action is "WHERE AM I GOING"; method is "WHAT AM I DOING WHEN I GET THERE" -->
+<!--Blank action = send it back to where it came from -->
+<form action="https://requestinspector.com/inspect/azeban_cohort" method="POST">
+<!--    methods: GET and POST are our main two -->
+<!--    GET = go RETRIEVE value, put QUERY STRINGS into my URL, don't CHANGE anything -->
+<!--    POST = I have information here I want to send to UPDATE something - or CHANGE something -->
+
+    <label>Search:
+    <input type="text" name="search" id="search">
+    </label>
+
+    <label for="language">Language for search:</label>
+    <input type="text" name="language" id="language">
+
+    <br>
+    <br>
+    <label for="comment">Comment:</label>
+    <textarea name="comment" id="comment"></textarea>
+
+    <select name="coffee_preference">
+        <option value="light">Light Roast</option>
+        <option value="dark">Dark Roast</option>
+        <option value="espresso">Espresso Blend</option>
+    </select>
+
+
+
+
+    <button type="submit">submit</button>
+</form>
+
+<h1>Good ui/ux - forms with labels!</h1>
+<h2>What kind of phone do you own?</h2>
+<label for="android">
+    Android <input id="android" type="checkbox" name="phones" value="android">
+</label>
+<label for="ios">
+    iOS <input id="ios" type="checkbox" name="phones" value="ios">
+</label>
+<label for="windows">
+    Windows <input id="windows" type="checkbox" name="phones" value="windows">
+</label>
+<label for="other">
+    Other <input id="other" type="checkbox" name="phones" value="other">
+</label>
+
+</body>
+</html>
