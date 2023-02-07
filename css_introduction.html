@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>How do we add CSS?</title>
+
+    <!--    Hooking up an external sheet: -->
+    <link rel="stylesheet" href="css/intro_to_css.css">
+
+    <style>
+
+    /* Inline / Embedded Style Sheet: */
+        h4 {
+            color: brown;
+            border-radius: 100%;
+            border: 10px solid black;
+        }
+
+        /* Example of a custom 'class' with a generic block level 'div' element: */
+        .myheading {
+            color: cornflowerblue;
+            font-size: 2em;
+            border: 1px solid red;
+        }
+
+        p {
+            color: rebeccapurple;
+            border: 10px solid blue;
+            padding: 0;
+        }
+    </style>
+
+</head>
+<body>
+
+
+<h1>So you want to add CSS to your HTML</h1>
+
+<h3 style="color:rebeccapurple; text-decoration: underline">Here's us using a style attribute</h3>
+
+<h4>Embedded Sheet 1</h4>
+<h4>Embedded Sheet 2</h4>
+<h4>Embedded Sheet 3</h4>
+
+
+<!--In the future-->
+
+<div class="myheading">Embedded Sheet ex2</div>
+<div class="myheading">Embedded Sheet ex2</div>
+<div class="myheading">Embedded Sheet ex2</div>
+
+<!--External sheet / Playing with conflicting styles -->
+<p style="color:pink; border: 10px solid forestgreen; font-size: 1em">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto asperiores beatae deleniti dolor ducimus eius explicabo fugit in libero minus nam, nostrum perspiciatis recusandae rem repellat temporibus unde voluptate voluptatibus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto asperiores beatae deleniti dolor ducimus eius explicabo fugit in libero minus nam, nostrum perspiciatis recusandae rem repellat temporibus unde voluptate voluptatibus.</p>
+</body>
+</html>
