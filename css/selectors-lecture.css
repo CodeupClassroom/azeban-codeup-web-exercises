@@ -1,0 +1,67 @@
+/* Selectors & Properties */
+
+/* By Element, by .class, by #id */
+
+/*li {*/
+/*    border: 1px solid black;*/
+/*    padding: .5em;*/
+/*    list-style-type: square;*/
+/*}*/
+
+.body {
+    /*color: rebeccapurple;*/
+    /*font-size: 2em;*/
+}
+
+#heading {
+    background-color: black;
+    color: red;
+}
+
+.border {
+    border: 2px solid orange;
+}
+
+.extra-large {
+    font-size: 3em;
+}
+
+/*li, .body, #heading {*/
+/*    color: rebeccapurple;*/
+/*}*/
+
+#weather>li {
+    color: blue;
+}
+
+p.highlight {
+    background-color: yellow;
+}
+
+h4.highlight {
+    background-color: deeppink;
+}
+
+/* unvisited link (:link) */
+a:link {
+    color:red;
+}
+
+/* visited link (:visited) */
+a:visited {
+    color:black;
+}
+
+/* mouse hover over link (:hover) */
+a:hover {
+    color:blue;
+}
+
+/* active/selected link (:active) */
+a:active {
+    color:green;
+}
+
+#hexExample {
+    color: #4c0d81;
+}
