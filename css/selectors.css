@@ -14,17 +14,17 @@
 }
 
 /* selector for all "em" elements */
-selector-todo {
+em {
     font-weight: bold;
 }
 
 /* selector for all elements with class="article" */
-selector-todo {
+.article {
     clear:both;
 }
 
 /*  selector for all "anchor" elements
     that are a direct child of an element with class="article" */
-selector-todo {
+.article>a {
     float:right;
 }
