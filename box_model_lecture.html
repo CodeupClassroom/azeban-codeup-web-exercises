@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Box Model</title>
+    <style>
+
+        * {
+           /* default sizing:
+           add ALL PADDING
+           ALL BORDER
+           and SUM with content */
+           /*box-sizing: content-box; */
+
+        /*    prefer: box-sizing
+         SET to THIS width/height
+         PUSH IN content w/ border and padding*/
+            box-sizing: border-box;
+        }
+
+        div {
+            border: 1px solid red;
+        }
+
+        #box1 {
+            /*border: 1px solid red;*/
+
+        /*    give it a height/width prop */
+            height: 50px;
+            width: 50px;
+
+        /*    Padding: INSIDE of my element, can I get some spacing?*/
+
+            padding: 20px 12px 1px 4px;
+            margin-bottom: 200px;
+        }
+
+        #box2 {
+            text-align: center;
+            height: 300px;
+            width: 300px;
+            border: 24px solid black;
+            padding: 20px;
+            border-radius: 100%;
+            margin-bottom: 500px;
+            margin-top: 100px;
+            margin-left: 100px;
+            background-image: url("puppiesBg.jpg");
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+
+<div id="box1">One</div>
+<div id="box2">Two</div>
+<div id="box3">Three</div>
+
+</body>
+</html>
