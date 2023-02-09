@@ -1,3 +1,7 @@
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
 h2 {
     color: cornflowerblue;
     text-decoration: underline;
@@ -13,12 +17,57 @@ li {
     list-style-type: upper-latin;
 }
 
+/*table, tr, td, th */
+
+table {
+    padding: 1em;
+}
+
+th {
+    font-size: 24px;
+}
+
+tr, td, th {
+    border: 1px solid black;
+    padding: .5em;
+}
+
+/*anchor psuedo tags*/
+
+a:link {
+    color: deeppink;
+}
+
+a:visited {
+    color: crimson;
+}
+
+a:hover {
+    color: gold;
+}
+
+a:active{
+    color: cyan;
+}
+
+img {
+    border-radius: 50%;
+    border: 4px dashed black;
+}
+
+hr {
+    border-radius: 50%;
+    border: 10px dashed green;
+
+}
+
 .fancy-header {
     text-align: center;
     color: rebeccapurple;
     text-decoration: underline;
 
 }
+
 
 
 
