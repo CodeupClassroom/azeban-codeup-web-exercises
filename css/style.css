@@ -1,3 +1,31 @@
-.fancy-header {
-    color: rebeccapurple;
+h2 {
+    color: cornflowerblue;
+    text-decoration: underline;
 }
+
+body {
+    background-color: antiquewhite;
+    background-image: url("../puppiesBg.jpg");
+    background-size: cover;
+}
+
+li {
+    list-style-type: upper-latin;
+}
+
+.fancy-header {
+    text-align: center;
+    color: rebeccapurple;
+    text-decoration: underline;
+
+}
+
+
+
+/*
+possibility: did you edit the html? you could!
+.underline {
+text-decoration: underline;
+}
+*/
+
