@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flexbox Basics Examples</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: Helvetica;
+            font-weight: bold;
+        }
+        .flex-container {
+
+            width: 100%;
+            border: 3px solid goldenrod;
+
+        /*    To flex, we need to first talk to display */
+            display: flex;
+
+        /* "The items will stretch to fill the size of the cross axis." ; let's try that with a 'height' property to give our cross axis more space   */
+            height: 300px;
+
+        /*    row-reverse <> semantically appropriate */
+            flex-direction: row-reverse;
+
+        /*    justify properties < what do you want to do with the MAIN AXIS white space */
+        /*    When I think "justify" I immediately know I'm working with my main axis */
+            justify-content: center;
+
+        /*    align-items < what do you want me to do with the CROSS AXIS free space? */
+        /*    When I hear "align-items" I think CROSS AXIS */
+            align-items: center;
+
+
+        }
+
+        .flex-container2 {
+
+            /*width: 100%;*/
+            border: 3px solid goldenrod;
+
+
+            display: flex;
+            /*height: 300px;*/
+
+            /*Let's change the flex direction*/
+
+            /*column-reverse <> semantically appropriate */
+            flex-direction: column;
+
+        /*    justify properties < what do you want to do with the MAIN AXIS of space */
+            justify-content: flex-start;
+
+            /*    align-items < what do you want me to do with the CROSS AXIS free space? */
+            /*    When I hear "align-items" I think CROSS AXIS */
+
+            align-items: baseline;
+
+        }
+
+
+        .flex-item {
+            background: #BFD45D;
+            border: 2px solid #F9EFD6;
+            padding: 1em;
+        }
+
+        .margin {
+            margin-top: 2em;
+            margin-bottom: 2em;
+        }
+    /*    Flex with baseline CSS below: */
+        .baseline-flex-example {
+
+            display: flex;
+            align-items: baseline;
+            border: 5px solid goldenrod;
+            height: 33vh;
+
+        /*    Default of nowrap is no gusta - we see the fifth box 'breaking out' of its container [OVERFLOWING ruh oh */
+            flex-wrap: nowrap;
+        }
+        .box1 {
+            font-size: 15px;
+        }
+        .box2 {
+            font-size: 30px;
+        }
+        .box3 {
+            font-size: 45px;
+        }
+        .box4 {
+            font-size: 60px;
+        }
+        .box5 {
+            font-size: 75px;
+        }
+        
+    /*    Purposeful nowrap example */
+        .no-wrap-example {
+            display: flex;
+            border: 5px solid goldenrod;
+
+            width: 400px;
+            height: 600px;
+            flex-wrap: wrap;
+
+        /*    align-content < only works with 'wrap' enabled flex boxes */
+        /*    What does it let me do? It lets me impact multiple rows of items and their spacing  */
+        /*    "What do I want to do with the space between these rows or columns?*/
+            align-items: center;
+            justify-content: center;
+
+            /*align-content: center;*/
+
+
+        }
+
+        #nowrap1 {
+            /*    Order - I can target individual flex children and talk to their 'order' as far as their appearance goes*/
+            order: 1;
+        }
+
+        #nowrap3{
+            order: 2;
+        }
+
+        #nowrap5 {
+            order: 3;
+        }
+
+        #nowrap7 {
+            order: 4;
+        }
+
+        #nowrap9 {
+            order: 5;
+        }
+
+        #nowrap11{
+            order: 6;
+        }
+
+        #nowrap12 {
+            order: -1;
+        }
+
+        #nowrap10 {
+            order: -2;
+        }
+
+        #nowrap8 {
+            order: -3;
+        }
+
+        #nowrap6{
+            order: -4;
+        }
+
+    /*    I commented out the align-content and align items property for the following demonstration */
+
+        #nowrap2{
+            align-self: flex-end;
+        }
+
+        #nowrap4{
+            align-self: flex-start;
+        }
+
+    /*    Flex grow! */
+        .flex-grow-example {
+            display: flex;
+            border: 5px solid goldenrod;
+
+
+        }
+
+        .flex-grow-example>div{
+            flex-grow: 1;
+        }
+
+        .flex-grow-example>div:nth-child(2){
+            flex-grow: 2;
+        }
+
+        .flex-grow-example>div:nth-child(3){
+            flex-grow: 4;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="flex-container margin">
+    <div class="flex-item">Item 1</div>
+    <div class="flex-item">Item 2</div>
+    <div class="flex-item">Item 3</div>
+</div>
+
+<div class="flex-container2 margin">
+    <div class="flex-item">Item 1</div>
+    <div class="flex-item">Item 2</div>
+    <div class="flex-item">Item 3</div>
+</div>
+
+<div class="baseline-flex-example margin">
+    <div class="flex-item box1">first</div>
+    <div class="flex-item box2">second</div>
+    <div class="flex-item box3">third</div>
+    <div class="flex-item box4">fourth</div>
+    <div class="flex-item box5">fifth</div>
+</div>
+
+<div class="no-wrap-example margin">
+    <div id="nowrap1" class="flex-item nowrapbox">1</div>
+    <div id="nowrap2" class="flex-item nowrapbox">2</div>
+    <div id="nowrap3" class="flex-item nowrapbox">3</div>
+    <div id="nowrap4" class="flex-item nowrapbox">4</div>
+    <div id="nowrap5" class="flex-item nowrapbox">5</div>
+    <div id="nowrap6" class="flex-item nowrapbox">6</div>
+    <div id="nowrap7" class="flex-item nowrapbox">7</div>
+    <div id="nowrap8" class="flex-item nowrapbox">8</div>
+    <div id="nowrap9" class="flex-item nowrapbox">9</div>
+    <div id="nowrap10" class="flex-item nowrapbox">10</div>
+    <div id="nowrap11" class="flex-item nowrapbox">11</div>
+    <div id="nowrap12" class="flex-item nowrapbox">12</div>
+</div>
+
+<div class="flex-grow-example margin">
+    <div class="flex-item">Grow 1</div>
+    <div class="flex-item">Grow 2</div>
+    <div class="flex-item">Grow 3</div>
+</div>
+
+</body>
+</html>
