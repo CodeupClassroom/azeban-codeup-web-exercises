@@ -1,0 +1,26 @@
+*{
+    padding:0;
+    margin:0;
+}
+body{
+    box-sizing: border-box;
+}
+
+nav{
+    background-color: darkgrey;
+    display: flex;
+}
+
+nav a{
+    text-decoration: none;
+    color: black;
+    padding:1em;
+}
+nav a:hover{
+    background-color: royalblue;
+}
+
+nav h2{
+    margin: auto auto;
+    font-size: 3em;
+}
