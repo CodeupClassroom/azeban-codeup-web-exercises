@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--    <meta charset="UTF-8">-->
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>M-Q Lecture :D</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 100vh;
+        }
+
+        .settings {
+            width: 20%;
+            height: 20%;
+            background-color: rebeccapurple;
+            border: 2px solid black;
+            margin: 10px;
+        }
+
+        @media screen and (max-width: 500px){
+            .pixel{
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        @media screen and (min-width: 780px){
+            .container {
+                display: flex;
+
+                flex-wrap: wrap;
+            }
+
+            .pixel {
+                width: 200px;
+                height: 200px;
+                background-color: cornflowerblue;
+                font-size: 78px;
+                text-align: center;
+            }
+        }
+
+        @media screen and (min-width: 1080px) and (max-width: 1200px){
+            .container {
+                flex-direction: row-reverse;
+            }
+
+            .pixel:nth-child(2){
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!--    <div>Content</div>-->
+<!--    <div>Content</div>-->
+<!--    <div>Content</div>-->
+
+<div class="container">
+    <div class="pixel settings">1</div>
+    <div class="pixel settings">2</div>
+    <div class="pixel settings">3</div>
+</div>
+</body>
+</html>
