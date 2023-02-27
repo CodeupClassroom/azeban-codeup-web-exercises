@@ -136,6 +136,23 @@ for(let i = 0; i < allListItems.length; i++){
     console.log("This is us live showing a new attribute and pulling value " + allListItems[i].getAttribute(myAttribute)); //NOW we made a NEW custom attribute, used JavaScript to SET ALL OUR LIST ITEMS TO HAVE IT, and then we talked to it in our console
 }
 
+//Style < Okay, We TRAVERSED [we navigated the tree), worked with ATTR (getting/setting, creating, does it have? custom attributes)
+let bodyTag = document.getElementsByTagName("body")[0];
+
+bodyTag.style.color = "red";
+bodyTag.style.color = "#9d8d0c";
+
+//Okay - problem arises with '-' dashes. We use either camelCase or bracket notation
+
+bodyTag.style.backgroundColor = "rebeccapurple";
+
+bodyTag.style["background-color"] = "cornflowerblue";
+
+//One more example at least:
+
+for(let i = 0; i < allListItems.length; i++){
+    allListItems[i].style.backgroundColor = "#000";
+}
 </script>
 </body>
 </html>
