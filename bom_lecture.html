@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[b] [o] [m]</title>
+</head>
+<body>
+
+<script>
+
+    //Window object < has a lot of neat properties, nested objects, methods
+
+    //window.location = "differentWebsite"
+    //window.location.reload() (a method to reload)
+    //window.history.back() || window.history.forward()
+    //Dozens and DOZENS of properties. . here's a couple specific ones we want to practice with
+
+    //setInterval()
+    //Maybe like. .  do this thing every X seconds
+
+    //You will need - the number of seconds between executin
+    //And a thing to execute?
+    //We often want to start with a variable
+
+    //setInterval(function(){ //stuff to do }, numMs)
+
+    // let num = setInterval(function(){
+    //     console.log("Hey - it's time for me to say hello. I say hello every 5 seconds")
+    // }, 5000)
+    //
+    // let num2 = setInterval(function(){
+    //     console.log("Hey - it is time for me to say what's up. I say what's up every 2.5 seconds")
+    // }, 2500)
+
+    //What if I want to stop this tho? In a loop I would break. . setInterval will RETURN a "id" for this process
+
+    //We used clearInterval in the console with both variables of num && num2
+
+    //setTimeout()
+    //Maybe like. . "Hey, do you still wanna be logged in?"
+
+    let seeTimeout = confirm("Do you want to see the example of the timeout message?")
+
+
+    let timeoutId = setTimeout(function(){
+
+        let stayLogged = confirm("Do you want to stay logged in?");
+
+    }, 7000)
+
+    if(!seeTimeout){
+        clearTimeout(timeoutId);
+    }
+
+    //? What are the differences between the two?
+
+
+</script>
+</body>
+</html>
