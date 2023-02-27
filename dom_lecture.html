@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Title</title>
+</head>
+
+<style>
+    img {
+        height: 100px;
+        width: 100px;
+    }
+</style>
+<body>
+
+<ul id="list">
+    <li class="listItem">Item 1</li>
+    <li class="listItem">Item 2</li>
+    <li class="listItem">Item 3</li>
+</ul>
+
+<ol>
+    <li data-databaseId="1"></li>
+    <li data-databaseId="2"></li>
+    <li data-databaseId="3"></li>
+</ol>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquid aperiam aspernatur dicta ducimus est, expedita illum laborum maiores nam odio officiis omnis sed totam ullam unde velit veritatis voluptates.</p>
+
+<!--Forms example -->
+<form name="loginForm">
+
+    <label for="username">Username:</label><input type="text" id="username" name="username">
+
+    <br>
+
+    <label for="password">Password:</label><input type="text" id="password" name="password">
+</form>
+
+<img src="https://media.licdn.com/dms/image/C4E03AQEI7jPFjT7iKQ/profile-displayphoto-shrink_800_800/0/1576859165131?e=1683158400&v=beta&t=HSBI6WCJA0XJtiqePyk7eF79Ie9iKhDQ9ydyI_CGoWA" alt="">
+<img src="https://media.licdn.com/dms/image/C4E03AQEI7jPFjT7iKQ/profile-displayphoto-shrink_800_800/0/1576859165131?e=1683158400&v=beta&t=HSBI6WCJA0XJtiqePyk7eF79Ie9iKhDQ9ydyI_CGoWA" alt="" >
+
+<script>
+<!--    We are often going to talk about "GETTERS" and "SETTERS" -->
+
+//If something is a 'getter' it retrieves information
+//Grab by id ; class ; element name
+//I can even take when I grab [a node or collection of nodes] and pass it into a variable
+
+let unorderedList = document.getElementById("list");
+
+let listItems = document.getElementsByClassName("listItem");
+
+let paragraphEle = document.getElementsByTagName("p");
+
+//Example: These are OBJECTS - won't easily String-ify in a way we might expect
+// console.log("my unordered list node: " + unorderedList);
+//
+// console.log("HTML Collection of List items: " + listItems);
+
+for(let i = 0; i < listItems.length; i++){
+    console.log(listItems[i]);
+}
+
+//Forms, Images, Anchors! <this time by directly going from document object to > forms; images; or anchors without a method
+
+console.log(document.forms.loginForm);
+
+console.log(document.images[0]);
+
+//I have retrieved elements in a few ways - methods, properties, otherwise. What can I do with them?
+
+//Setting properties > these nodes have different properties and methods we can use to CHANGE THEM WITHOUT EVER TOUCHING THE HTML
+for(let i = 0; i < listItems.length; i++){
+    listItems[i].innerHTML = "<span>You been hacked</span>";
+}
+
+//Getters .. setters.. sometimes a method can be both
+console.log(paragraphEle[0].innerHTML); //I wanna SEE/GET the innerHTML of this
+
+paragraphEle[0].innerHTML = "<p>An example of changing the innerHTML of an area! <em>Cool eh?</em></p>";
+
+//InnerText vs InnerHtml
+//InnerText is very literal - it will NOT play with any html tags you send it
+//InnerHtml = is happy to take any html tags and render into your view :)
+console.log(paragraphEle[0].innerHTML); //Now I see the changes! JS running top to bottom!
+
+console.log(paragraphEle[0].innerText);
+
+console.log(paragraphEle[0].innerHTML);
+
+paragraphEle[0].innerText = "<p>Cool paragraph - information, <em>stuff emphasized</em>."
+
+console.log("~ ~ line break ~ ~ ");
+//Getting and Setting the attr part of your elements
+let images = document.getElementsByTagName("img");
+
+//A. hasAttribute (true or false? is that attribute there?)
+
+console.log(images[0].hasAttribute("src")); //True! We have a src attribute!
+console.log(images[0].hasAttribute("href")); //False! We do not have a href attribute!
+
+//B. getAttribute (okay - what is the VALUE of that attribute)
+
+console.log(images[0].getAttribute("src")); //Link to the image
+console.log(images[0].getAttribute("href")); //Null - no value found for attribute of 'href'
+
+//C. setAttribute (let's CHANGE the value of that attribute)
+images[0].setAttribute("src", "https://media.licdn.com/dms/image/D4D03AQFInAW98Ak0sg/profile-displayphoto-shrink_800_800/0/1676752904491?e=1683158400&v=beta&t=ztLXjj9wYIm8YuYUH-V__VMaeFm0EhWOYh-lzVdxy7s")
+
+//Side quest: What if that attribute. . isn't there? :thinking emoji:
+
+//Experiment: We see that it ADDED this attribute even tho it was NOT THERE in the HTML as written; JavaScript power!
+images[0].setAttribute("style", "height: 250px; width: 250px");
+
+//Okay - I am TIRED of having two pictures on my HTML, what if I could remove the SRC attribute of the image element?
+images[0].removeAttribute("src"); //picture is GONE, the src of that picture was removed - only the styling remains!
+
+//Custom attributes - in addition to the attributes listed on the MDN or W3, we can name our own attributes
+
+//All custom attributes in HTML start with "data-"
+
+var allListItems = document.getElementsByTagName("li");
+
+for(let i = 0; i < allListItems.length; i++){
+    console.log(allListItems[i].getAttribute("data-databaseId")); //Now we're talking to the CUSTOM ATTRIBUTE we set above with data-databaseId
+}
+
+let myAttribute = "data-example";
+
+for (let i = 0; i < allListItems.length; i++){
+    allListItems[i].setAttribute(myAttribute, i);
+}
+
+for(let i = 0; i < allListItems.length; i++){
+    console.log("This is us live showing a new attribute and pulling value " + allListItems[i].getAttribute(myAttribute)); //NOW we made a NEW custom attribute, used JavaScript to SET ALL OUR LIST ITEMS TO HAVE IT, and then we talked to it in our console
+}
+
+</script>
+</body>
+</html>
