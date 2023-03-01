@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<!--Example Button-->
+<button id="myBtn">Try it</button>
+
+<!-- Example Header -->
+<h1 id="demo">Color Me!!!</h1>
+
+
+
+
+
+</body>
+<script>
+  /////***********   Document Object Model (DOM) Events  ***********/////
+
+  /**
+   *  Example Websites:
+   *  http://everylastdrop.co.uk/
+   *  https://www.salvatorecasalino.it/
+   *  https://www.sbs.com.au/theboat/
+   */
+
+  /**
+   * ** Register an Event Listener
+   *
+   *  (*) Syntax
+   *      element.addEventListener(eventType, eventListenerFunction);
+   *
+   *    - The HTML element that you want to add the event listener to.
+   *      This can be any HTML element on the page, such as a button, a form, or a div.
+   *    - The addEventListener() method is a built-in method in JavaScript that allows
+   *      us to add event listeners to an HTML element.
+   *    - A string that specifies the type of event to listen for.
+   *      This can be any DOM event, such as "click", "keydown", "scroll", etc.
+   *    - The eventListenerFunction is a function that will be called when the specified event
+   *      occurs on the HTML element.
+   *
+   */
+
+
+  //--- Example #1 - AddEventListener
+  document.addEventListener("click", function(){
+    document.body.style.backgroundColor = "red";
+  });
+
+  //--- Example #2 - AddEventListener
+      document.getElementById("myBtn").addEventListener("click", myFunction);
+      function myFunction() {
+        alert ("Hello World!");
+      }
+
+  //--- Example #3 - AddEventListener
+    document.getElementById("demo").addEventListener("mouseenter", mouseEnter);
+    document.getElementById("demo").addEventListener("mouseleave", mouseLeave);
+    function mouseEnter() {
+      document.getElementById("demo").style.color = "red";
+    }
+    function mouseLeave() {
+      document.getElementById("demo").style.color = "black";
+    }
+
+  /**
+   * https://www.w3schools.com/jsref/dom_obj_event.asp
+   */
+
+  /**
+   *
+   *  Remove an Event Listener
+   *      - remove event listeners using the removeEventListener() method.
+   */
+
+  //--- Example #1 - Remove Event Listener
+      document.addEventListener("click", function(){
+        document.getElementById("demo").removeEventListener("mouseleave", mouseLeave);
+      });
+
+  //--- Example #2 - Remove Event Listener
+      // add event listener to btn1
+      var btn1 = document.getElementById('btn1');
+      btn1.addEventListener('click', listener);
+
+      function listener(event) {
+        alert('You clicked the button!');
+      }
+
+
+      // add event listener to btn2
+      var btn2 = document.getElementById('btn2');
+      btn2.addEventListener('click', remover);
+
+      function remover(event) {
+        // remove event listener from btn1
+        btn1.removeEventListener('click', listener);
+        console.log('Event listener removed.');
+  }
+</script>
+</html>
