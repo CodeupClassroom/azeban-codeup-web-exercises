@@ -6,6 +6,19 @@
 </head>
 <body>
 
+<h1>Hello World</h1>
+
+<h3 id="myHeading">Welcome to the world of jQuery</h3>
+
+
+<p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aspernatur culpa dolore excepturi in ipsa iusto magni molestiae officia perferendis, perspiciatis sequi soluta tempora ut voluptas? Accusantium eum quisquam sunt!</p>
+
+<p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquam architecto asperiores esse natus nisi placeat quibusdam quidem ratione vel. Animi aspernatur doloremque impedit iste necessitatibus obcaecati officia sed sequi.</p>
+
+<p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aspernatur commodi enim est expedita, fuga harum id impedit in, magni minus molestias optio placeat quibusdam quisquam recusandae temporibus tenetur veritatis?</p>
+
+<a href="https://www.google.com" id="btmLink">Get me out of here!</a>
+
 <!--jQuery script below: loading in via "CDN" [think: Bootstrap]-->
 <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 
@@ -21,10 +34,63 @@
 //     alert("Dom loaded!")
 // });
 
-$(function(){
-    alert("Dom loaded!")
-});
+// $(function(){
+//     alert("Dom loaded!")
+// });
 
+//Selectors lecture :D
+
+//Selectors in jQuery should remind us heavily of our CSS selectors - it is where the authors of jQuery got the idea!
+
+//$ < the alias for jQuery object > ("selector") < the function call and the selector passed as a String literal argument
+
+//all together: $("selector"); $("#id"); $(".class"); $("tagName");
+
+console.log($("p"));
+
+console.log($("#btmLink")[0]);
+
+
+//Okay - how about some variables?
+
+let bottomLink = $("#btmLink")[0];
+
+console.log("Here's the variable talking: ");
+console.log(bottomLink);
+
+let paragraphOne = $("p")[0];
+
+console.log(paragraphOne);
+
+//Multi-selector:
+
+console.log("Here's the multi-selector talking: ");
+console.log($("#btmLink, #myHeading"));
+
+//How would I go get the innerHTML of the body in jQuery?
+
+let bodyContents = $("body").html();
+
+console.log("The HTML of the body: ");
+console.log(bodyContents);
+
+
+//How would I change CSS for the first time in jQuery
+
+$("p").css("background-color", "rebeccapurple");
+
+//Bonus content: He said 'method chaining' earlier, right? What is it?
+
+$(".paragraph") //return jQuery object to next chain >
+    .css("background-color", "cornflowerblue")
+    .css("color", "red")
+    .css("border", "1px solid red")
+    .css("margin", "5px")
+    .css("padding", "10px")
+
+//All selector
+
+$("*").css("font-size", "30px")
 </script>
 
 
