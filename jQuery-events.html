@@ -23,7 +23,7 @@
             width: 75px;
             border: 1px dashed white;
             background-color: black;
-            margin: 10px 0px 10px 5px;
+            margin: 10px 0 10px 5px;
             color: red;
 
             /*fbox*/
@@ -43,6 +43,10 @@
         <div id="box3">Three</div>
         <div id="box4">Four</div>
     </main>
+
+    <button id="myBtn">Click me to stop listening for keyboard events</button>
+
+    <button id="btn2">Click me to reset the stored userInput variable</button>
 
 
 <!--jQuery CDN-->
@@ -87,26 +91,104 @@ $("#box4, #box2").dblclick(function(e){
 //      callbackFn2(e){
 // stuff to do when the mouse leaves})
 
-$("div").hover(
-    //first function: What do I do when the mouse arrives?
-    function(e){
-        // console.log(e);
+// $("div").hover(
+//     //first function: What do I do when the mouse arrives?
+//     function(e){
+//         // console.log(e);
+//
+//         $(this).css("background-color", "rebeccapurple");
+//
+//         console.log("This is the 'mouseenter' part talking!");
+//     },
+//
+//     //second function: What do I do when the mouse leaves?
+//     function(){
+//         $(this).css("background-color", "black");
+//
+//         console.log("This is the 'mouseleave' part talking!");
+//     }).click(function(e){
+//     console.log("Chain complete?");
+// })
 
-        $(this).css("background-color", "rebeccapurple");
 
-        console.log("This is the 'mouseenter' part talking!");
-    },
+//Keyboard Events (lec pt2)
 
-    //second function: What do I do when the mouse leaves?
-    function(){
-        $(this).css("background-color", "black");
+//$("selector").keyBoardEvent(callBackFn(){})
 
-        console.log("This is the 'mouseleave' part talking!");
-    }).click(function(e){
-    console.log("Chain complete?");
+//.keydown();
+
+//
+// $(document).keydown(function(e){
+//     console.log("this is keydown");
+//     console.log("This character's keyCode is " + e.keyCode);
+//     console.log("I just hit the letter "+ e.key);
+// })
+
+//You can chain these
+//     .keypress(function(e){
+//     console.log("KEYPRESS KEYPRESS * * * * KEYPRESS");
+//     console.log("This character's keyCode is " + e.keyCode);
+//     console.log("I just hit the letter "+ e.key);}
+// )
+
+// // .keypress();
+// $(document).keypress(function(e){
+//     console.log("This character's keyCode is " + e.keyCode);
+//     console.log("I just hit the letter "+ e.key);}
+// )
+//
+// // .keyup();
+// $(document).keyup(function(e){
+//     console.log("This is KEYUP! UP ! KEY UP");
+//     console.log("This character's keyCode is " + e.keyCode);
+//     console.log("I just hit the letter "+ e.key);
+// });
+
+///.on vs .off
+//     $(document).on("keydown", function(e){
+//         console.log("Tell me about this key - keycode = " + e.keyCode + " and the key we hit was " + e.key + ".");
+//     })
+//
+//     $("#box1").on("click", function(){
+//         alert("You clicked me!");
+//     })
+
+//Get rid of an event listener!
+
+// $("#myBtn").on("click", function(e){
+//     e.preventDefault();
+//     alert("myBtn clicked!");
+//
+//     // $(document).off();
+//     $(document).off("keydown");
+// })
+
+
+//Soft transition into the exercise
+//Let's say the password is abracadabra
+//When the user enters abracadabra < the body changes color to pink
+
+let password = "abracadabra";
+let userInput = "";
+
+$(document).keyup(function(e){
+    // console.log(e.keyCode);
+    // console.log(e.key);
+
+    userInput+= e.key;
+    console.log("~ ~ ~ user input so far : ~ ~ ~");
+    console.log(userInput);
+
+if(password === userInput){
+    $("body").css("background-color", "pink");
+    alert("SUrPrIsE");
+}
 })
 
-
+$("#btn2").click(function(e){
+    userInput = "";
+    console.log("UserInput emptied: " + userInput + " < should be blank");
+})
 </script>
 
 </body>
