@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Events - j Q u e r y</title>
+    <style>
+
+
+        * {
+            /*Cheap CSS reset */
+            margin: 0;
+            padding: 0;
+        }
+
+
+        main {
+            display: flex;
+        }
+
+        div {
+            /*base*/
+            height: 75px;
+            width: 75px;
+            border: 1px dashed white;
+            background-color: black;
+            margin: 10px 0px 10px 5px;
+            color: red;
+
+            /*fbox*/
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <main>
+        <div id="box1">One</div>
+        <div id="box2">Two</div>
+        <div id="box3">Three</div>
+        <div id="box4">Four</div>
+    </main>
+
+
+<!--jQuery CDN-->
+<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+
+<!--Custom JS below -->
+<script>
+<!-- jQuery selected mouse events -->
+
+// click(); dblclick(); hover()
+
+//syntax: $("selector").eventMethod(cllBackFn(e){ //does stuff})
+
+// click()
+$("div").click(function(e){
+    // console.log(e);
+
+    //Change THIS box's background color to rPurple
+    $(this).css("background-color", "rebeccapurple");
+
+
+    //Change ALL MATCHING selectors of DIV to bgColor cornflowerblue
+    // $("div").css("background-color", "cornflowerblue");
+})
+
+
+//dblClick()
+
+$("#box4, #box2").dblclick(function(e){
+    // console.log(e);
+
+    $(this).css("font-size", "48px")
+})
+
+//hover() < interesting
+
+//In vanillaJS - 'mouseenter' + 'mouseleave' (two events) = One hover
+//in jQuery we just need to provide TWO callBackFn to .hover()
+//syntax: $("selector").hover(
+//      callbackFn1(e){
+// stuff to do when mouse is here},
+//      callbackFn2(e){
+// stuff to do when the mouse leaves})
+
+$("div").hover(
+    //first function: What do I do when the mouse arrives?
+    function(e){
+        // console.log(e);
+
+        $(this).css("background-color", "rebeccapurple");
+
+        console.log("This is the 'mouseenter' part talking!");
+    },
+
+    //second function: What do I do when the mouse leaves?
+    function(){
+        $(this).css("background-color", "black");
+
+        console.log("This is the 'mouseleave' part talking!");
+    }).click(function(e){
+    console.log("Chain complete?");
+})
+
+
+</script>
+
+</body>
+</html>
