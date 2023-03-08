@@ -74,9 +74,9 @@
     <div class="paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium atque commodi delectus dolore doloremque dolores enim, fugiat in incidunt inventore itaque iure natus nesciunt nihil omnis quibusdam quis quod vero.</div>
 
     <div class="paragraph">
-        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+        <span id="firstSpan">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
 
-        <span>Culpa dolores ducimus facilis libero nostrum officia sequi voluptates?</span>
+        <span id="secondSpan">Culpa dolores ducimus facilis libero nostrum officia sequi voluptates?</span>
 
         <span>Alias corporis eos ex fugiat, illo minima nostrum officiis porro, possimus quam voluptates.</span>
     </div>
@@ -109,18 +109,82 @@
 
 <!-- Custom JS below -->
 <!--First essential methods lecture-->
-<script src="js/jQueryEssMethodsAttr.js"></script>
+<!--<script src="js/jQueryEssMethodsAttr.js"></script>-->
 
 <!--Second essential methods lecture (traversal)-->
 <script>
 
 // To traverse, to move around the DOM tree, to go to parts of the DOM tree specifically, many parts, some parts, etc.
 
-//.each()
+//.each() (we've see a style of this before .. forEach)
+//.each(function(index, element) {//do some stuff}
 
-//.first() && .last()
+$(".paragraph").each(function(index, element){
+    //Establishing "what" index is, "what" element is
+    // console.log(index);
+    // console.log(element);
+
+    //Change every even div to background-color rPurple
+    if(index % 2 === 0){
+
+        //Now: we're talking to 'even' indexed returns from the .each() method
+        console.log(index);
+        console.log(element);
+
+        $(this).css("background-color", "rebeccapurple");
+    } else {
+        $(this).css("background-color", "antiquewhite");
+    }
+})
+
+$("*").each(function(index, element){
+    console.log(element);
+    $(this).css("color", "gray")
+})
+
+
+
+//.first() && .last() [effect FIRST from what was returned from selector or effect LAST from what was returned from selector]
+
+$("ul").first().css("background-color", "cornflowerblue")
+
+$("ul > li").last().css("background-color", "red")
+
+console.log($("*").last()); //interesting < that's the SCRIPT tag
 
 //.parent(), .children(), .next()
+
+//Can we START with the unordered lists
+//Talk to the 'parent' (footer element)
+//Change that parent to have a 1px solid black border?
+
+$("ul").parent().css("border", "1px solid black")
+
+//.children w/ main ele
+
+//Can we use the main element add padding and a dashed big beautiful border with radius to the children DIVs inside of main?
+$("main")
+    .children() //main > 4 divs :D
+    .css("border", "5px dashed hotpink")
+    .css("padding", "1em")
+    .css("color", "#000")
+    .css("border-radius", "20%");
+//.next()
+
+//Let's do some sibling spans! third div has THREE SPANS to work with
+//#firstSpan (topmostSpan); #secondSpan (middleSpan)
+$("#firstSpan").next().css("color", "red")
+
+$("#secondSpan").next().css("color", "limegreen")
+
+//Two ULs < grab FIRST UL, UL has CHILDREN (three list items), < grab LAST of children (last list item), change that font color to red please
+$("ul").first().children().last().css("color", "red")
+
+//Dynamism !
+
+//What if your HTML structure was MOSTLY or ENTIRELY constructed via JS functions?
+
+//Okay JavaScript, there's a number of DIVs on the page, can you grab the CHILDREN of ALL DIVs you find, and MODIFY THEM X WAY or add click event
 
 </script>
 
