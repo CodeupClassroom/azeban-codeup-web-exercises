@@ -36,7 +36,7 @@
             justify-content: space-around;
             width: 100%;
             list-style: none;
-            border: 1px solid black;
+            /*border: 1px solid black;*/
             border-radius: 100%;
             margin: 12px;
 
@@ -55,6 +55,10 @@
 
         .bigFont {
             font-size: 100px;
+        }
+
+        .bigBorder {
+            border: 24px solid hotpink;
         }
 
     </style>
@@ -178,11 +182,11 @@
 
     //Try it with an object - this notation is interesting, have you seen it before? (hint: JSON)
 
-    $("#footer > ul").css(
-        {
-            'border':'5px solid cornflowerblue',
-            'border-radius': '50%'
-        })
+    // $("#footer > ul").css(
+    //     {
+    //         'border':'5px solid cornflowerblue',
+    //         'border-radius': '50%'
+    //     })
 
     //addClass, removeClass, toggleClass < semantically named, you can imagine what they do!
 
@@ -195,6 +199,18 @@
     $("#myBtn3").click(function(){
         $(".paragraph").toggleClass("highlight");
     })
+
+    //.hover() with toggleClass idea:
+
+    $("#footer > ul").hover(function(){
+        $(this).toggleClass("bigBorder")
+    },
+
+    function(){
+        $(this).toggleClass("bigBorder")
+    })
+
+    $("button").off();
 
 </script>
 </body>
