@@ -1,0 +1,41 @@
+[
+  {
+    "name":"Peanut",
+    "coat": "Tortoise Shell",
+    "age": 3,
+    "activities": ["being a paper towel", "jumping up high", "only pets in certain rooms"]
+  },
+
+  {
+    "name":"Pumpkin",
+    "coat": "Orange/Creamsicle",
+    "age": 5,
+    "activities": ["loud yelling", "sleeping on top of the fridge", "always down for pets in any room"]
+  },
+
+  {
+    "name":"Pinch",
+    "coat": "Black",
+    "age": 1.5,
+    "activities": ["being a paper towel", "jumping up high", "only pets in certain rooms"]
+  },
+
+  {
+    "name":"Paprika",
+    "coat": "White",
+    "age": 0,
+    "activities": ["sleeping", "eating", "yell in the morning"]
+  },
+
+  {
+    "name":"Pie",
+    "coat": "Calico",
+    "age": 0,
+    "activities": ["sleeping", "eating", "yell in the morning"]
+  }
+
+
+
+
+
+]

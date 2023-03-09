@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[A] [J] [A] [X] the great</title>
+</head>
+<body>
+<h1> &#128008; My cats  &#128008;  </h1>
+<main id="content"></main>
+
+<!--jQuery CDN below-->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
+<!--custom JS below-->
+<script>
+
+// GET vs POST
+//GET < retreive information, makes a 'query string' we see in the url
+
+//POST < persist (save) or update to a server or system (log in process, create a new post, upload my selfie)
+
+//To perform these types of requests - we use methods from the jQuery library
+
+//If you want the "fully customizable" method .ajax()
+// $.ajax("data/cats.json") //go here and GET info
+//     .done(function(data, status, jqXhr){ //when you are DONE getting info. .
+//         // do some stuff:
+//     console.log(status); //just the status
+//     console.log(data); //just the JSON data I got
+//         console.log(jqXhr); //the kitchen sink
+//     }
+// )
+
+//.ajax takes a number options
+
+// .ajax("exampleUrl/endpoint", {
+//     type: "POST",
+//     data: {
+//         "name": "Paprika",
+//         "age": 0,
+//         "coat": "white"
+//     },
+//     dataType: "application/json",
+//     username: "exampleUn",
+//     password: "examplePw",
+//     headers: "corspreflightStuff/headers you need"
+// })
+
+//Handling what comes back
+
+//Happy path and unhappy path - did I send a request and everything was copacetic? or did I send a request and an error happened along the way?
+
+
+// $.ajax("data/fats.json")
+//     .always(function(){
+//         console.log("I will always be seen");
+//     }) //always do this
+//     .done(function(data, status){
+//         console.log(data);
+//         console.log(status);
+//     }) //if happy path do this
+//     .fail(function(jqXhr, status, errorMsg){
+//
+//         console.log(jqXhr);
+//         console.log(status);
+//         console.log(errorMsg);
+//
+//     }) //else if unhappy do this
+//
+
+//Shorthand methods .get() or .post()
+
+$.get("data/cats.json").done(function(data){
+
+    // data.forEach(function(cat){
+    //     console.log(`My cat has a name ${cat.name} - this cat is ${cat.age} years old and the color of this cat's coat is ${cat.coat}`); //string templating with es6 language
+    // })
+
+    //refactor above: build my cats a page
+
+    let buildHtml = ""; //Let me store all the HTML I need in here
+
+    data.forEach(function(cat){
+
+        buildHtml += "Name: " + cat.name + " "
+       + "Age : " + cat.age + ". "
+       + "Coat: " + cat.coat + ". "
+        + "Activities: " + cat.activities.toString() + ". ";
+    })
+
+    $("#content").append(buildHtml)
+    // $.post("url/postHere").done(function(data){
+    //     //do some stuff now when done
+    // })
+    //     .fail(function(obj, status, msg){
+    //         // do stuff here
+    //     })
+
+})
+
+</script>
+</body>
+</html>
