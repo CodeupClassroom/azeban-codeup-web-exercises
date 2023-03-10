@@ -171,11 +171,14 @@ $("#box4, #box2").dblclick(function(e){
 let password = "abracadabra";
 let userInput = "";
 
-$(document).keyup(function(e){
+$(document).keyup(function(event){
     // console.log(e.keyCode);
     // console.log(e.key);
 
-    userInput+= e.key;
+    // console.log(event); //This object has EVERYTHING
+    // event.key
+    alert("I pressed this key: " + event.key)
+    userInput+= event.key;
     console.log("~ ~ ~ user input so far : ~ ~ ~");
     console.log(userInput);
 

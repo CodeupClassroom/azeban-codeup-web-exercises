@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mApBoX aPi</title>
+
+<!--    Mapbox CDN below-->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css' rel='stylesheet' />
+
+<!--    embedded stylesheet below -->
+<!--    We can adjust the SIZE of the map in css:-->
+    <style>
+
+    #map {
+        border: 3px solid black;
+        margin: 5em 1em;
+        border-radius: 100%;
+        height: 40vh;
+        width: 90vw;
+    }
+    </style>
+</head>
+<body>
+
+<div id="map"></div>
+
+<script src="js/mapbox-geocoder-utils.js"></script>
+<script>
+<!-- My Token is here (my costCo card)-->
+    let myToken= "pk.eyJ1IjoiaG93ZWxsa2VuIiwiYSI6ImNsZjJzYTNiazBsYnAzeXBqZjdrZW96djMifQ.otX7RJGm05Flb7kye7wgvw";
+
+    mapboxgl.accessToken = myToken;
+
+    //A JavaScript object named 'map'
+    // using mapboxgl.Map() method with
+    //an "options" object that sets properties: container (where the map goes in my HTML by id), style, center (where the map starts centered), and zoom (how close in we are when we begin)
+    const map = new mapboxgl.Map(
+        {
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/outdoors-v12', // style URL
+        center: [-98.48617, 29.42594], // starting position [lng, lat]
+        zoom: 15, // starting zoom (0 - 20)
+          }
+    );
+
+    //What is a map without some markers?
+    //set up a JavaScript object
+    //call mapboxgl.Marker()
+    //then. . setProperties() methods
+
+    let myMarker = new mapboxgl.Marker();
+    myMarker.setLngLat([-98.48617, 29.42594]);
+    myMarker.addTo(map);
+
+    //Codeup coords: 29.426867117042384, -98.48961467443773
+
+    //More markers? More problems? Maybe
+    let myMarker2 = new mapboxgl.Marker();
+    myMarker2.setLngLat([-98.48961, 29.42686]);
+    myMarker2.addTo(map);
+
+    //MapboxGl - can you make me a new Popup object?
+    let myPopup = new mapboxgl.Popup();
+
+    //popup needs to know: where do I go [lat lng]? what do I say [html]? what map do I go to [by referencing the js variable]
+
+    myPopup.setLngLat([-98.48961, 29.42686])
+    myPopup.setHTML("<span>Codeup Downtown</span>")
+
+    // I can add a popup to the map. . .
+    //     myPopup.addTo(map)
+
+    //Or: add a popup to the MARKER ITSELF
+    myMarker2.setPopup(myPopup);
+
+    //How the geocode functions must be called:
+
+    // geocode("San Antonio", API_TOKEN_HERE).then(function(results) {
+    //     // do something with results
+    // }) reverseGeocode({lat: 32.77, lng: -96.79}, API_TOKEN_HERE).then(function(results) {
+    //     // do something with results
+    // })
+
+geocode("The Alamo, San Antonio, TX", myToken).then(function(results){
+    console.log("Geocode result");
+    console.log(results);
+})
+
+reverseGeocode({lat: 29.42686, lng: -98.48961}, myToken).then(function(results){
+    console.log("Reverse GC results");
+    console.log(results);
+})
+
+//Can we geocode an address and use that address we get in the result to add a popup and flyTo there?
+
+//6715 W Colfax Ave, Lakewood, CO 80214
+
+geocode("6715 W Colfax Ave, Lakewood, CO 80214", myToken).then(function(results){
+    console.log(results);
+    let myMarker3 = new mapboxgl.Marker();
+    myMarker3.setLngLat(results);
+    myMarker3.addTo(map);
+
+    let myOptionsObj = {center: results, zoom: 15};
+
+    map.flyTo(myOptionsObj);
+
+    console.log(myOptionsObj);
+
+    // map.flyTo({center: [0, 0], zoom: 5})
+})
+
+</script>
+
+</body>
+</html>
