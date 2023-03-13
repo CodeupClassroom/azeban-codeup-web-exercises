@@ -14,8 +14,9 @@
 </body>
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+<script src="js/keys.js"></script>
 <script>
-    let openWeatherKey = "2e85f153f2651752d65ea5c7164f6244";
+
 
 //    OpenWeather: An API built of APIs
 
@@ -55,6 +56,45 @@
     console.log("~~~");
     console.log("weather endpoint below");
     console.log(`https://api.openweathermap.org/data/2.5/weather?lat=${29.51034}&lon=${-98.64661}&appid=${openWeatherKey}`);
+
+//    Okay: How do I change the UNITS? It is NOT going to be 288 degrees in Leon Valley today.
+
+//Answer: add in units key with value of 'imperial' (or metric)
+
+console.log(`https://api.openweathermap.org/data/2.5/weather?lat=${29.51034}&lon=${-98.64661}&appid=${openWeatherKey}&units=imperial`);
+
+//Okay - we've messed with the URLs and endpoints, talked about ways to interact with them and see them in our browser
+
+
+//How do we TALK to this data: For example, can I just get curated "current forecast" data and print it on my screen
+
+console.log(": ~ ~ Talking to data below ~ ~ :");
+
+let html = "";
+
+//my old cords: ?lat=${29.51034}&lon=${-98.64661}
+
+//Travis' coords: 29.623148749882247, -98.50846661345147
+
+$.get(`https://api.openweathermap.org/data/2.5/weather?lat=${29.623148749882247}&lon=${-98.50846661345147}&appid=${openWeatherKey}&units=imperial`).done(function(data){
+    console.log(data);
+
+   html+= `<h4>Current location: ${data.name}</h4>`;
+
+    html += `<h4>Current weather: ${data.weather[0].description}</h4>`;
+
+
+    html += `<h5>Current average wind speed: ${parseInt(data.wind.speed)} knots</h5>`;
+
+    html += `<h5>Current Temperature: ${parseInt(data.main.temp)} &deg;</h5>`;
+
+
+    html += `<h5>Current humidity: ${parseInt(data.main.humidity)}</h5>`;
+
+    $("#weatherBody").html(html);
+
+
+})
 
 </script>
 </html>
