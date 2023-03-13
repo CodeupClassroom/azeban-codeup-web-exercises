@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>my b l o g</title>
+</head>
+<body>
+
+<div id="posts"></div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
+<script>
+    $.get("data/blog.json").done(function(data){
+
+
+        let myBlogHTML = "";
+       data.forEach(function(obj){
+           // "title": "The Second Post",
+           //     "content": "Cupcake ipsum dolor sit amet gummies. Cake chocolate sweet ice cream oat cake biscuit bear claw dessert. Jujubes marzipan toffee apple pie pastry dragée jujubes marshmallow. Dragée chocolate gingerbread liquorice chocolate bar jujubes. Sweet chocolate bar jelly-o chocolate cake candy carrot cake cotton candy macaroon marzipan. Sweet roll biscuit sweet gummies topping sesame snaps tootsie roll sugar plum pie. Sweet muffin croissant chocolate cake chupa chups. Donut croissant gummies donut powder ice cream. Chupa chups halvah apple pie topping jelly beans donut candy canes donut. Bonbon cake gummi bears cheesecake tart topping powder liquorice gummi bears.",
+           //     "categories": [
+           //     "family",
+           //     "candy",
+           //     "sweets",
+           //     "sugar"
+           // ],
+           //     "date": "February 14, 2015"
+
+           myBlogHTML += `<div>
+
+            <div>${obj.title}</div>
+            <div>${obj.categories}</div>
+            <div>${obj.date}</div>
+
+           </div>`
+       })
+        console.log(myBlogHTML);
+        $("#posts").html(myBlogHTML)
+
+    })
+</script>
+</body>
+</html>

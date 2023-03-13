@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[w] [e] [a] [t] [h] [e] [r]</title>
+</head>
+<body>
+    <h2>~ weather ~</h2>
+
+    <div id="weatherBody">
+
+    </div>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+<script>
+    let openWeatherKey = "2e85f153f2651752d65ea5c7164f6244";
+
+//    OpenWeather: An API built of APIs
+
+    //OneCall vs Forecast vs CurrentWeather
+
+    //OneCall: Paywall + 1000 free hits per day / 60 per minute [can set up in backroom]
+    //endpoint: "/onecall"
+    //url syntax example: https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
+
+    //401 till you subscribe via paywall process
+
+    // console.log(`https://api.openweathermap.org/data/3.0/onecall?lat=${29.51034}&lon=${-98.64661}&appid=${openWeatherKey}`);
+    //
+    // $.get(`https://api.openweathermap.org/data/3.0/onecall?lat=${29.51034}&lon=${-98.64661}&exclude={part}&appid=${openWeatherKey}`).done(function(data){
+    //     console.log(data);
+    // })
+
+    //Forecast/CurrentWeather: To my knowledge, will not hit you with a CC
+
+    //Hourly forecast:
+    //endpoint: "/forecast"
+    //fuller url: "https://api.openweathermap.org/data/2.5/forecast?"
+    //url syntax example: https://pro.openweathermap.org/data/2.5/forecast/hourly?lat={lat}&lon={lon}&appid={API key}
+
+    console.log("~~~");
+    console.log("forecast endpoint below");
+    console.log(`https://api.openweathermap.org/data/2.5/forecast?lat=${29.51034}&lon=${-98.64661}&appid=${openWeatherKey}`);
+
+    //Actual URL being built:
+    // https://api.openweathermap.org/data/2.5/forecast?lat=29.51034&lon=-98.64661&appid=2e85f153f2651752d65ea5c7164f6244
+
+
+    //CurrentWeather
+    //endpoint: "/weather"
+    //url syntax example: https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
+
+    console.log("~~~");
+    console.log("weather endpoint below");
+    console.log(`https://api.openweathermap.org/data/2.5/weather?lat=${29.51034}&lon=${-98.64661}&appid=${openWeatherKey}`);
+
+</script>
+</html>
