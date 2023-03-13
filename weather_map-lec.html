@@ -15,6 +15,9 @@
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
 <script src="js/keys.js"></script>
+
+<script src="js/mapbox-geocoder-utils.js"></script>
+
 <script>
 
 
@@ -76,25 +79,77 @@ let html = "";
 
 //Travis' coords: 29.623148749882247, -98.50846661345147
 
-$.get(`https://api.openweathermap.org/data/2.5/weather?lat=${29.623148749882247}&lon=${-98.50846661345147}&appid=${openWeatherKey}&units=imperial`).done(function(data){
-    console.log(data);
+// $.get(`https://api.openweathermap.org/data/2.5/weather?lat=${29.623148749882247}&lon=${-98.50846661345147}&appid=${openWeatherKey}&units=imperial`).done(function(data){
+//
+//
+//    html+= `<h4>Current location: ${data.name}</h4>`;
+//
+//     html += `<h4>Current weather: ${data.weather[0].description}</h4>`;
+//
+//
+//     html += `<h5>Current average wind speed: ${parseInt(data.wind.speed)} knots</h5>`;
+//
+//     html += `<h5>Current Temperature: ${parseInt(data.main.temp)} &deg;</h5>`;
+//
+//
+//     html += `<h5>Current humidity: ${parseInt(data.main.humidity)}</h5>`;
+//
+//     $("#weatherBody").html(html);
+//
+//
+// })
 
-   html+= `<h4>Current location: ${data.name}</h4>`;
+//Student question: How can I get geocode from MapBox to talk to what we studied today?
+//First: we need the "geocode" stuff (script w/ functions - "mapbox-geocoder-utils.js" needs to be brought into our code
+//Second: I also need my MapBox credentials to send through GeoCode [update my keys.js to have that 2nd api key!]
 
-    html += `<h4>Current weather: ${data.weather[0].description}</h4>`;
+//Let's test to point: Does mapBoxKey in keys.js work with geocode in my console?
+
+geocode("8646 Sunny Oaks, San Antonio, TX 78250", mapBoxKey).then(function(results){
+    console.log(results[0]);
+    console.log(results[1]);
+    ;} //test successful: key and geocode function provided correct looking results
+)
+
+//Third: I can tie all the above together - hypothesis geocode("address") will execute the above cards I wrote out
+
+//Okay - geocode gives me back an array of long, lat
+//Need to put those values from array > into url
+//I say let's make a function!
+
+function geoCodeBuildWeather(searchString) {
+
+    geocode(searchString, mapBoxKey).then(function (results) {
+        console.log(results[0]);
+        console.log(results[1]);
+
+        console.log(`https://api.openweathermap.org/data/2.5/weather?lat=${results[1]}&lon=${results[0]}&appid=${openWeatherKey}&units=imperial`);
+
+        $.get(`https://api.openweathermap.org/data/2.5/weather?lat=${results[1]}&lon=${results[0]}&appid=${openWeatherKey}&units=imperial`).done(function (data) {
 
 
-    html += `<h5>Current average wind speed: ${parseInt(data.wind.speed)} knots</h5>`;
+            html += `<h4>Current location: ${data.name}</h4>`;
 
-    html += `<h5>Current Temperature: ${parseInt(data.main.temp)} &deg;</h5>`;
-
-
-    html += `<h5>Current humidity: ${parseInt(data.main.humidity)}</h5>`;
-
-    $("#weatherBody").html(html);
+            html += `<h4>Current weather: ${data.weather[0].description}</h4>`;
 
 
-})
+            html += `<h5>Current average wind speed: ${parseInt(data.wind.speed)} knots</h5>`;
+
+            html += `<h5>Current Temperature: ${parseInt(data.main.temp)} &deg;</h5>`;
+
+
+            html += `<h5>Current humidity: ${parseInt(data.main.humidity)}</h5>`;
+
+            $("#weatherBody").html(html);
+
+
+        })
+    })
+};
+
+//Fourth: If we're feelin' frisky, can we get an input box > to send value to geocode > which makes the above happen
+
+
 
 </script>
 </html>
