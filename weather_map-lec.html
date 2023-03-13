@@ -7,6 +7,8 @@
 <body>
     <h2>~ weather ~</h2>
 
+    <input type="text" placeholder="Search for weather" id="searchInput"> <button id="myBtn">Click here to search</button>
+
     <div id="weatherBody">
 
     </div>
@@ -73,7 +75,7 @@ console.log(`https://api.openweathermap.org/data/2.5/weather?lat=${29.51034}&lon
 
 console.log(": ~ ~ Talking to data below ~ ~ :");
 
-let html = "";
+
 
 //my old cords: ?lat=${29.51034}&lon=${-98.64661}
 
@@ -118,7 +120,7 @@ geocode("8646 Sunny Oaks, San Antonio, TX 78250", mapBoxKey).then(function(resul
 //I say let's make a function!
 
 function geoCodeBuildWeather(searchString) {
-
+    let html = "";
     geocode(searchString, mapBoxKey).then(function (results) {
         console.log(results[0]);
         console.log(results[1]);
@@ -144,12 +146,21 @@ function geoCodeBuildWeather(searchString) {
 
 
         })
+
     })
 };
 
 //Fourth: If we're feelin' frisky, can we get an input box > to send value to geocode > which makes the above happen
 
+//I need: to add an input with a button
 
+
+//button>onClick take input.value and pass to function to renderHtml thru geoCodeBuildWeather(inputSearch)
+
+$("#myBtn").click(function(e){
+    e.preventDefault();
+    geoCodeBuildWeather($("#searchInput").val());
+})
 
 </script>
 </html>
